@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<title>DSS - Contact&eacute;nos</title>
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans|Titillium+Web" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="../css/main.css">
+    <link rel="shortcut icon" href="../images/favicon.png" />
+</head>
+<body>
+	<div class="home" id="home">
+		<div class="logo">
+			<a href="../index.html"><img src="../images/logo.png" class="logoimage"></a>
+		</div>
+		<nav>
+			<a href="../index.html" class="nav-link">Home</a>
+			<a href="services.html" class="nav-link">Servicios</a>
+			<a href="us.html" class="nav-link">Nosotros</a>
+			<a href="contact.html" class="nav-link">Cont&aacute;ctenos</a>
+			<a href="news.html" class="nav-link">Noticias</a>
+			<div class="sign">
+				<a href="#" class="signicon nav-link"><i class="fas fa-user"></i></a>
+				<div class="sign-content">
+					<h2 class="ingresar">Ingresar</h2>
+					<br>
+					<form>
+						<div class="signin">
+							<label for="user">Usuario:</label><input type="text" name="user" id="user">
+							<br>
+							<label for="pass">Contrase&ntilde;a:</label><input type="text" name="pass" id="pass">
+							<br>
+						</div>
+						<button type="button" id="entrar">Entrar</button> | <a class="crear-cuenta" href="#">Cree su cuenta</a>
+					</form>
+				</div>
+			</div>
+			<br>
+			<br>
+			<a href="#" class="social"><i class="fab fa-facebook-square"></i></a>
+			<a href="#" class="social"><i class="fab fa-instagram"></i></a>
+			<a href="#" class="social"><i class="fab fa-twitter-square"></i></a>
+			<br>
+			<p><i class="fas fa-phone"></i> (809) 555-5555</p>
+		</nav>
+		<main class="contact">
+			<h1>Contact&eacute;nos</h1>
+			<p>Puede mandarnos un correo con su pregunta o con la solicitud de una cita para tratar su problema en persona. Le enviaremos una respuesta tan pronto posible</p>
+			<form class="contact-form">
+				<label class="labels" for="fname">Nombre: </label><input class="inputs" type="text" name="fname" id="contact-fname">
+
+				<label class="labels" for="lname">Apellido: </label><input class="inputs" type="text" name="lname" id="contact-lname">
+
+				<label class="labels" for="phone">Tel&eacute;fono: </label><input class="inputs" type="text" name="phone" id="contact-phone">
+
+				<label class="labels" for="email"> Correo electr&oacute;nico:<span class="required">*</span></label><input class="inputs" type="text" name="email" id="contact-email" required>
+
+				<label class="labels" for="subject">Asunto:<span class="required">*</label></span><input class="inputs" type="text" name="subject" id="contact-subject" required>
+
+				<label class="labels"for="message">Mensaje:<span class="required">*</label><textarea class="inputs" name="message" id="contact-message" required></textarea></span>
+				<button type="button" onclick="emailto.sendEmail();">Enviar</button>
+			</form>
+		</main>
+		
+		<footer>
+			<div class="phylo footer">
+				<h4>Filosof&iacute;a</h4>
+				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto eius, explicabo ab eos assumenda sunt, placeat exercitationem obcaecati sequi velit cumque. Unde provident, magnam molestias iure nisi impedit odio distinctio.</p>
+			</div>
+			<div class="contact footer">
+				<h4>Contacto:</h4>
+				<p><i class="fas fa-at"></i> dssdominicana@gmail.com</p>
+				<p><i class="fas fa-phone"></i> (809) 555-5555</p>
+			</div>
+			<div class="hours footer">
+				<h4>Horario</h4>
+				<p>Lunes a viernes:</p>
+				<p>9:00AM a 5:00PM</p>
+			</div>
+		</footer>
+		<div id="arrow">
+			<a href="#home"><i class="fas fa-arrow-circle-up"></i></a>
+		</div>
+	</div>
+</body>
+</html>
+
+<script type="text/javascript" src="../js/main.js"></script>
