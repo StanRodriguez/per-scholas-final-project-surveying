@@ -7,13 +7,15 @@ body *{
 }
 button{
 	border-radius: 5px;
+	background-color:red;
+	color: white;
 }
 h1, h2, h3,h4{
 	font-family: 'Titillium Web', sans-serif;
 }
 .logoimage{
 	width: 100%;
-	height: 100%;
+	height: 80%;
 	padding: 0;
 }
 
@@ -21,6 +23,7 @@ h1, h2, h3,h4{
 	display: grid;
 	grid-template-columns: repeat(4,1fr);
 	grid-template-rows: 200px 1fr 200px 200px;
+	grid-gap: 20px;
 	grid-template-areas: 
 	"logo nav nav nav"
 	"main main main main"
@@ -274,14 +277,69 @@ section img{
 /*#######News#########*/
 #news {
 	margin: 40px;
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	grid-gap: 10px;
 }
 #news button{
-	padding: 15px;
+	padding: 20px;
+/*	margin-bottom: 40px;*/
+/*	margin-top: 20px;*/
+	font-size: 17px;
+}
+#news a{
+	grid-column: 1 / 3;
+	margin-bottom: 60px;
 }
 #news img {
-	width: 50%;
-	height: 50%;
+	width: 200px;
+	height: 100px;
+	outline:none;
+/*	grid-column: 1 / 3;
+	place-self: center;*/
 }
-#news *{
+/*#news *{
 	margin: 10px;
+}*/
+#news h1{
+	font-size: 230%;
+/*	grid-column: 1 / 3;*/
+
+}
+#news p{
+	grid-column: 1 / 3;
+}
+
+
+/*#######works######*/
+#works-right,#works-left{
+	font-size: 50px;
+	display: block;
+	position: absolute;
+	background-color: rgba(0,0,0,0.6);
+	top:50%;
+	outline: none;
+	border-radius: 0 10px 10px 0;
+}
+#works-right{
+	right:0;
+	border-radius: 10px 0px 0px 10px;
+}
+#works-right:hover,#works-left:hover{
+		background-color: rgba(0,0,0,1);
+}
+#works-right i,#works-left i{
+	color: white;
+}
+#works{
+	width: 700px;
+	height: 600px;
+	margin: 0 auto;
+}
+#works img{
+	height: 500px;
+}
+#works p{
+	bottom: 0;
+	margin: 0;
 }

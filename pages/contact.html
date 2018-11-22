@@ -16,6 +16,7 @@
 			<a href="../index.html" class="nav-link">Home</a>
 			<a href="services.html" class="nav-link">Servicios</a>
 			<a href="us.html" class="nav-link">Nosotros</a>
+			<a href="works.html" class="nav-link">Proyectos</a>
 			<a href="contact.html" class="nav-link">Cont&aacute;ctenos</a>
 			<a href="news.html" class="nav-link">Noticias</a>
 			<div class="sign">
@@ -52,11 +53,11 @@
 
 				<label class="labels" for="phone">Tel&eacute;fono: </label><input class="inputs" type="text" name="phone" id="contact-phone">
 
-				<label class="labels" for="email"> Correo electr&oacute;nico:<span class="required">*</span></label><input class="inputs" type="text" name="email" id="contact-email" required>
+				<label class="labels" for="email"> Correo electr&oacute;nico:<span class="required">*</span></label><input class="inputs" type="text" name="email" id="contact-email" onblur="isEmpty(this)" required>
 
-				<label class="labels" for="subject">Asunto:<span class="required">*</label></span><input class="inputs" type="text" name="subject" id="contact-subject" required>
+				<label class="labels" for="subject">Asunto:<span class="required">*</label></span><input class="inputs" type="text" name="subject" id="contact-subject" onblur="isEmpty(this)" required>
 
-				<label class="labels"for="message">Mensaje:<span class="required">*</label><textarea class="inputs" name="message" id="contact-message" required></textarea></span>
+				<label class="labels"for="message">Mensaje:<span class="required">*</label><textarea class="inputs" name="message" id="contact-message" onblur="isEmpty(this)" required></textarea></span>
 				<button type="button" onclick="emailto.sendEmail();">Enviar</button>
 			</form>
 		</main>

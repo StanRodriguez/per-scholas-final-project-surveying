@@ -42,9 +42,7 @@
 // }
 // let interval=setInterval(this.makeSlide, 3000,1);
 
-let folder = './images/slideshow/';
-let images =['1.jpg','2.jpg','3.jpg','4.jpg'];
-let current = 0;
+
 
 const slide = (index) =>{
 
@@ -60,17 +58,14 @@ const slide = (index) =>{
 	}
 
 	//make everything invicible
-	for (var i = 0; i < slides.length; i++) {
+	for (let i = 0; i < slides.length; i++) {
 		slides[i].style.display='none'
 	}
 
 	slides[current].style.display = 'block'
 }
 let interval;
-//only run on index.html
-if (window.location.href.match('index.html') != null) {
-	interval=setInterval(slide, 3000,1);
-}
+
 
 //dont change the slideshow
 const freeze = ()=>{
@@ -108,7 +103,7 @@ let emailto = {
 	sendEmail: function () {
 		// body...
 		this.setEmail();
-		if (this.email == '') {
+		if (document.getElementById('contact-email').value == '') {
 			document.getElementById('contact-email').style.border = '5px solid red';
 			document.getElementById('contact-email').focus();
 		}else if (this.subject == '') {
@@ -122,6 +117,14 @@ let emailto = {
 		}
 	}
 }
+const isEmpty = (e) =>{
+	if(e.value == '') {
+		e.style.border = '5px solid red';
+	}else{
+		e.style = 'unset';
+	}
+}
+
 
 const appearArrow = ()=>{
 
@@ -163,11 +166,12 @@ const appear = ()=>{
 class News {
 
 	constructor(){
-		this.headers =['Nuevo Logo empresarial','Nuevo deslinde'];
+		this.headers =['Nuevo Logo empresarial','Nuevo deslinde','Nuevo deslindeNuevo deslindeNuevo deslindeNuevo deslindeNuevo deslindeNuevo deslinde'];
 		this.images =['../images/logo.png','../images/logo.png'];
 		this.descriptions = [
 			'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vel nobis voluptates officia cumque nulla consequatur in quia, amet doloribus fugiat, molestiae, minima perferendis saepe? Aliquid itaque excepturi cumque neque odit!',
-			'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut magni nulla recusandae tenetur magnam officiis, distinctio adipisci fugiat rem facere, necessitatibus nemo voluptas sint aspernatur a asperiores, ducimus eaque laboriosam!'
+			'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut magni nulla recusandae tenetur magnam officiis, distinctio adipisci fugiat rem facere, necessitatibus nemo voluptas sint aspernatur a asperiores, ducimus eaque laboriosam!',
+		'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut magni nulla recusandae tenetur magnam officiis, distinctio adipisci fugiat rem facere, necessitatibus nemo voluptas sint aspernatur a asperiores, ducimus eaque laboriosam!'
 		]
 		this.wholeDescriptions = ["Stanly",
 			"Nando"
@@ -179,8 +183,8 @@ class News {
 			let h1Content = document.createTextNode(this.headers[i]);
 			h1.appendChild(h1Content);
 
-			let img = document.createElement("img");
-			img.src = this.images[i];
+			
+
 
 			let p = document.createElement("p");
 			let pContent = document.createTextNode(this.descriptions[i]);
@@ -197,10 +201,17 @@ class News {
 			a.appendChild(button);
 			// button.value="Read More";
 
+			// let hr = document.createElement("hr");
+
 			document.getElementById('news').appendChild(h1);
-			document.getElementById('news').appendChild(img);
+			if (this.images[i]!=null) {
+				let img = document.createElement("img");
+				img.src = this.images[i];
+				document.getElementById('news').appendChild(img);
+			}
 			document.getElementById('news').appendChild(p);
 			document.getElementById('news').appendChild(a);
+			// document.getElementById('news').appendChild(hr);
 		}
 
 	}
@@ -236,7 +247,21 @@ class News {
 }
 
 //control which code is going to run in each page
-if (window.location.href.match('services.html') != null) {
+//only run on index.html
+if (window.location.href.match('index.html') != null) {
+	folder = './images/slideshow/';
+	images =['1.jpg','2.jpg','3.jpg','4.jpg'];
+	current = 0;
+	interval=setInterval(slide, 3000,1);
+
+}else if (window.location.href.match('works.html') != null) {
+	folder = '../images/works_slideshow/';
+	images =['certificado.jpg','deslinde.jpg','medicion_construccion.jpg','plano_catastro.jpg'];
+	current = 0;
+
+	interval=setInterval(slide, 3000,1);
+
+}else if (window.location.href.match('services.html') != null) {
 		window.onscroll = function () {
 		appearArrow();
 		appear();
