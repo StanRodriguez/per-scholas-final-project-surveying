@@ -43,6 +43,74 @@
 // let interval=setInterval(this.makeSlide, 3000,1);
 
 
+// ########Speech recognition #######
+const speech = () =>{
+
+window.SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+
+	const recognition = new SpeechRecognition();
+
+	//has to be true for live results
+	recognition.interimResults = true;
+
+	let p = document.getElementById('speech');
+	// let img = document.getElementById("pic");
+	// img.src = "";
+	// var p = document.createElement('p');
+	//p.setAttribute('id', 'speech');
+	const words = document.querySelector('.words');
+	words.appendChild(p);
+
+	recognition.addEventListener('result', e =>{
+		const transcript = Array.from(e.results)
+			.map(result => result[0])
+			.map(result => result.transcript)
+			.join('');
+
+			//p.textContent = transcript;
+			// if (e.results[0].isFinal) {
+			// 	p = document.createElement('p');
+			// 	const words = document.querySelector('.words');
+			// 	words.appendChild(p);
+			// }
+			//console.log(transcript);
+
+			if (transcript.includes('hello')) {
+		 		p.textContent = 'Hi';
+			}if (transcript.includes('what time is it')) {
+				let date = new Date();
+		 		p.textContent = `It is ${date.toLocaleTimeString()}`;
+			}else if (transcript.includes('what is your name') || transcript.includes("what\'s your name")) {
+		 		p.textContent = 'I am Stanlybot and you?';
+			}else if (transcript.includes('Nando')) {
+		 		p.textContent = 'Nice to meet you, fake King of the North';
+		 		
+		 		 // img.src = "images/nando.png";
+			}else if (transcript.includes('I am ') || transcript.includes('I\'m ')) {
+		 		let name = transcript.split(' ');
+
+		 		// if (transcript.includes('Nando')) {
+		 		// 	p.textContent == `Nice to meet you, fake King of the North`
+		 		// } else{
+		 		p.textContent =`Nice to meet you, ${name[name.length-1]}`;
+		 	
+
+			}else if (transcript.includes('index')) {
+		 		window.open(`index.html`,'_self');
+			}
+
+	});
+		 console.log(p.textContent);
+		// if (p.textContent.search("Google") >-1 ) {
+		// 		window.open("http://google.com");
+		// 	}
+	recognition.addEventListener('end',recognition.start);
+	recognition.start();
+
+}
+
+// #########################
+
 
 const slide = (index) =>{
 
@@ -96,7 +164,7 @@ let emailto = {
 			this.phone = document.getElementById('contact-phone').value;
 			this.subject = encodeURI(document.getElementById('contact-subject').value);
 			// this.email = encodeURI(document.getElementById('contact-email').value);
-			this.message = encodeURI(document.getElementById('contact-message').value);
+			this.message = encodeURI(document.getElementById('contact-message').value+"\n"+this.fname+" "+this.lname+"\n"+this.phone);
 			this.mailto = `mailto:${this.email}?subject=${this.subject}&body=${this.message}`;
 	
 	},
@@ -129,7 +197,6 @@ const isEmpty = (e) =>{
 const appearArrow = ()=>{
 
 if (document.body.scrollTop < 350 || document.documentElement.scrollTop < 350) {
-
 		document.getElementById('arrow').className = "arrow";
 
     }
@@ -166,15 +233,16 @@ const appear = ()=>{
 class News {
 
 	constructor(){
-		this.headers =['Nuevo Logo empresarial','Nuevo deslinde','Nuevo deslindeNuevo deslindeNuevo deslindeNuevo deslindeNuevo deslindeNuevo deslinde'];
-		this.images =['../images/logo.png','../images/logo.png'];
+		this.headers =['Nuevo Logo empresarial','Nuevo deslinde en la parte norte de la region del Cibao','Escaneo tridimencional disponible en toda la Republica Dominicana'];
+		this.images =['../images/logo.png','../images/news/deslindes_mexicali_0.png'];
 		this.descriptions = [
 			'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vel nobis voluptates officia cumque nulla consequatur in quia, amet doloribus fugiat, molestiae, minima perferendis saepe? Aliquid itaque excepturi cumque neque odit!',
 			'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut magni nulla recusandae tenetur magnam officiis, distinctio adipisci fugiat rem facere, necessitatibus nemo voluptas sint aspernatur a asperiores, ducimus eaque laboriosam!',
 		'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut magni nulla recusandae tenetur magnam officiis, distinctio adipisci fugiat rem facere, necessitatibus nemo voluptas sint aspernatur a asperiores, ducimus eaque laboriosam!'
 		]
-		this.wholeDescriptions = ["Stanly",
-			"Nando"
+		this.wholeDescriptions = ["Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odit reiciendis dolores eligendi, enim, veritatis nam provident unde. Officia facere ipsam distinctio eveniet mollitia, repudiandae minima! Ad, fugit eveniet nemo delectus.",
+			"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dignissimos libero ipsam, eveniet cupiditate. Voluptatem reiciendis ducimus consequuntur repellat dolorem corrupti dignissimos quis, distinctio culpa aspernatur fugit hic officiis quasi accusantium?",
+		"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dignissimos libero ipsam, eveniet cupiditate. Voluptatem reiciendis ducimus consequuntur repellat dolorem corrupti dignissimos quis, distinctio culpa aspernatur fugit hic officiis quasi accusantium?"
 		]
 	}
 	createNews(){
@@ -182,9 +250,6 @@ class News {
 			let h1 = document.createElement("h1");
 			let h1Content = document.createTextNode(this.headers[i]);
 			h1.appendChild(h1Content);
-
-			
-
 
 			let p = document.createElement("p");
 			let pContent = document.createTextNode(this.descriptions[i]);
@@ -201,7 +266,7 @@ class News {
 			a.appendChild(button);
 			// button.value="Read More";
 
-			// let hr = document.createElement("hr");
+			 // let hr = document.createElement("hr");
 
 			document.getElementById('news').appendChild(h1);
 			if (this.images[i]!=null) {
@@ -211,7 +276,7 @@ class News {
 			}
 			document.getElementById('news').appendChild(p);
 			document.getElementById('news').appendChild(a);
-			// document.getElementById('news').appendChild(hr);
+			 // document.getElementById('news').appendChild(hr);
 		}
 
 	}
@@ -220,8 +285,9 @@ class News {
 			let h1Content = document.createTextNode(this.headers[index]);
 			h1.appendChild(h1Content);
 
-			let img = document.createElement("img");
-			img.src = this.images[index];
+			let pHeading = document.createElement("p");
+			let pHeadingContent = document.createTextNode(this.descriptions[index]);
+			pHeading.appendChild(pHeadingContent);
 
 			let p = document.createElement("p");
 			let pContent = document.createTextNode(this.wholeDescriptions[index]);
@@ -237,9 +303,14 @@ class News {
 
 			// a.appendChild(button);
 			// button.value="Read More";
-
 			document.getElementById('new').appendChild(h1);
-			document.getElementById('new').appendChild(img);
+			document.getElementById('new').appendChild(pHeading);
+			if (this.images[index]!=null) {
+				let img = document.createElement("img");
+				img.src = this.images[index];
+				document.getElementById('new').appendChild(img);
+			}
+
 			document.getElementById('new').appendChild(p);
 			// document.getElementById('new').appendChild(a);
 
@@ -283,4 +354,6 @@ if (window.location.href.match('index.html') != null) {
 	window.onscroll = function () {
 		appearArrow();
 	}
+}else if (window.location.href.match('intro.html') != null) {
+	window.onload = speech;
 }
