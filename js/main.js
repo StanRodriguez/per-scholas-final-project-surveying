@@ -156,7 +156,6 @@ let emailto = {
 	mailto: '',
 	setEmail: function(){
 		
-			// this.email = document.getElementById('contact-email').value;
 			this.subject = document.getElementById('contact-subject').value;
 			this.message = document.getElementById('contact-message').value;
 			this.fname = document.getElementById('contact-fname').value;
@@ -164,7 +163,7 @@ let emailto = {
 			this.phone = document.getElementById('contact-phone').value;
 			this.subject = encodeURI(document.getElementById('contact-subject').value);
 			// this.email = encodeURI(document.getElementById('contact-email').value);
-			this.message = encodeURI(document.getElementById('contact-message').value+"\n"+this.fname+" "+this.lname+"\n"+this.phone);
+			this.message = encodeURI(document.getElementById('contact-message').value+"\n\n\n"+this.fname+" "+this.lname+"\n"+this.phone);
 			this.mailto = `mailto:${this.email}?subject=${this.subject}&body=${this.message}`;
 	
 	},
