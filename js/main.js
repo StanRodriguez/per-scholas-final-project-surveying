@@ -58,8 +58,8 @@ window.SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecogn
 	// img.src = "";
 	// var p = document.createElement('p');
 	//p.setAttribute('id', 'speech');
-	const words = document.querySelector('.words');
-	words.appendChild(p);
+	// const words = document.querySelector('.words');
+	// words.appendChild(p);
 
 	recognition.addEventListener('result', e =>{
 		const transcript = Array.from(e.results)
