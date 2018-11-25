@@ -77,7 +77,9 @@ window.SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecogn
 
 			if (transcript.includes('hello')) {
 		 		p.textContent = 'Hi';
-			}if (transcript.includes('what time is it')) {
+			}else if (transcript.includes('not working')) {
+		 		p.textContent = 'I am working, you dumb!';
+			}else if (transcript.includes('what time is it')) {
 				let date = new Date();
 		 		p.textContent = `It is ${date.toLocaleTimeString()}`;
 			}else if (transcript.includes('what is your name') || transcript.includes("what\'s your name")) {
