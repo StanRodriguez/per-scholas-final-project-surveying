@@ -175,10 +175,10 @@ let emailto = {
 		if (document.getElementById('contact-email').value == '') {
 			document.getElementById('contact-email').style.border = '5px solid red';
 			document.getElementById('contact-email').focus();
-		}else if (this.subject == '') {
+		}else if (document.getElementById('contact-subject').value == '') {
 			document.getElementById('contact-subject').style.border = '5px solid red';
 			document.getElementById('contact-subject').focus();
-		}else if (this.message == '') {
+		}else if (document.getElementById('contact-message').value == '') {
 			document.getElementById('contact-message').style.border = '5px solid red';
 			document.getElementById('contact-message').focus();
 		}else{
