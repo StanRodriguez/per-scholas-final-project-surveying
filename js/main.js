@@ -54,15 +54,15 @@ window.SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecogn
 	recognition.interimResults = true;
 
 	let p = document.getElementById('speech');
-	// let img = document.getElementById("pic");
-	// img.src = "";
+	 let img = document.getElementById("pic");
+	 
 	// var p = document.createElement('p');
 	//p.setAttribute('id', 'speech');
 	// const words = document.querySelector('.words');
 	// words.appendChild(p);
 
 	recognition.addEventListener('result', e =>{
-		const transcript = Array.from(e.results)
+		let transcript = Array.from(e.results)
 			.map(result => result[0])
 			.map(result => result.transcript)
 			.join('');
@@ -74,7 +74,7 @@ window.SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecogn
 			// 	words.appendChild(p);
 			// }
 			//console.log(transcript);
-
+			img.src = "";
 			if (transcript.includes('hello')) {
 		 		p.textContent = 'Hi';
 			}else if (transcript.includes('not working')) {
@@ -85,9 +85,9 @@ window.SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecogn
 			}else if (transcript.includes('what is your name') || transcript.includes("what\'s your name")) {
 		 		p.textContent = 'I am Stanlybot and you?';
 			}else if (transcript.includes('Nando')) {
-		 		p.textContent = 'Nice to meet you, fake King of the North';
+		 		p.textContent = 'Nice to meet you, coder King of the North';
 		 		
-		 		 // img.src = "images/nando.png";
+		 		  img.src = "../images/nando.png";
 			}else if (transcript.includes('I am ') || transcript.includes('I\'m ')) {
 		 		let name = transcript.split(' ');
 
@@ -98,7 +98,7 @@ window.SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecogn
 		 	
 
 			}else if (transcript.includes('index')) {
-		 		window.open(`index.html`,'_self');
+		 		window.open(`../index.html`,'_self');
 			}
 
 	});

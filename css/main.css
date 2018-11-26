@@ -14,12 +14,13 @@ body *{
 	color: white;
 	width: 70%;
 	margin: 0 auto;
-	padding: 200px;
+	margin-top: 200px;
 	text-align: center;
 	animation: appear 1s;
 }
 .words #pic{
 	display: block;
+	margin: 0 auto;
 }
 button{
 	border-radius: 5px;
