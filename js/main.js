@@ -54,7 +54,7 @@ window.SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecogn
 	recognition.interimResults = true;
 
 	let p = document.getElementById('speech');
-	 let img = document.getElementById("pic");
+	let img = document.getElementById("pic");
 	 
 	// var p = document.createElement('p');
 	//p.setAttribute('id', 'speech');
